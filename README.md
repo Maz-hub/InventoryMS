@@ -6,5 +6,3 @@ This project is divided into two parts: Backend and Frontend.
 - Frontend: Utilizes [crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/), an extension of django-crispy-forms, to seamlessly integrate Bootstrap 5 styling into Django forms for a polished and responsive user interface.
 
 
-
-

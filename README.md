@@ -55,4 +55,17 @@ A new **layout.html** template has been added to provide a consistent structure 
 
 This layout ensures a uniform look across all pages and improves maintainability.
 
+## Recent Updates & Fixes  
+
+### 🖼️ **1. Image Uploads (Fix & Setup)**
+- Enabled **image uploads** for products by adding the following settings in **`settings.py`**:
+  ```python
+  MEDIA_URL = '/media/'
+  MEDIA_ROOT = BASE_DIR / 'media'
+
+
+
+
+
+
 

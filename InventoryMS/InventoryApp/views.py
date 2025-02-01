@@ -12,13 +12,23 @@ def home_view(request):
 
 # Create view
 def product_create_view(request):
-    form = ProductForm()
     if request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('product_list')
-    return render(request, 'inventoryApp/product_form.html', {'form': form})
+            product_sku = form.cleaned_data['product_sku']
+            
+            # ✅ Check if a product with the same SKU already exists
+            if Product.objects.filter(product_sku=product_sku).exists():
+                form.add_error('product_sku', 'A product with this SKU already exists.')
+            else:
+                form.save()
+                return redirect('product_list')  # Redirect to product list after saving
+
+    else:
+        form = ProductForm()
+    
+    return render(request, 'InventoryApp/product_form.html', {'form': form})
+
 
 # Read view
 def product_list_view(request):

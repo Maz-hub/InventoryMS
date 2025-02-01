@@ -5,9 +5,11 @@
 
 {% block content %}
 <h1 class="text-center">Product Form</h1>
-<form method="POST" class="jumbotron">
+<h1 class="text-center">Product Form</h1>
+<form method="POST" enctype="multipart/form-data" class="jumbotron">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_p }}  <!-- ✅ Renders entire form including errors -->
     <button type="submit" class="btn btn-success btn-block mt-3">Add Product</button>
 </form>
+
 {% endblock %}

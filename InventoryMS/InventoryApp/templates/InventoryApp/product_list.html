@@ -5,15 +5,6 @@
 
 {% block content %}
 
-<h2>Debugging Products</h2>
-<ul>
-    {% for product in products %}
-    <li>{{ product.product_name }} - {{ product.product_price }}</li>
-    {% empty %}
-    <li>No products found</li>
-    {% endfor %}
-</ul>
-
 
 <!-- Display the list of products -->
 <h1 class="text-center">Products</h1>
@@ -57,7 +48,9 @@
                 {% endif %}
             </td>
             <td>
-                <a href="{% url 'product_update' product.product_id %}">Update</a>
+                <a href="{% url 'product_update' product.product_id %}" class="btn btn-sm btn-warning mb-1">Update</a>
+
+                <a href="{% url 'product_delete' product.product_id %}" class="btn btn-sm btn-danger mt-1">Delete</a>
             </td>
 
         </tr>

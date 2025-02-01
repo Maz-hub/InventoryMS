@@ -1,71 +1,52 @@
-# Inventory Management System
+# 🛒 Inventory Management System  
 
-This project is divided into two parts: Backend and Frontend.
+This is a small project to practice **Django** by building an **Inventory Management System** where you can **add, edit, view, and delete products**.  
 
-- Backend: Focuses on server setup and database management. Django is used for handling the backend, with the help of [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms) to manage forms in a clean and elegant way.
-- Frontend: Utilizes [crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/), an extension of django-crispy-forms, to seamlessly integrate Bootstrap 5 styling into Django forms for a polished and responsive user interface.
+## 📌 What This Project Includes  
+This project has two main parts:  
 
+- **Backend (Django)** – Manages data, forms, and server-side logic.  
+- **Frontend (Bootstrap 5 + Django templates)** – Provides a simple user interface to interact with the inventory.  
 
-### Forms
-- **Product Form**: Added a `forms.py` file in the `InventoryApp` to manage product-related forms. 
-  - Includes fields for product details such as name, category, SKU, price, quantity, weight, color, size, supplier, description, and image.
-  - Utilizes `django-crispy-forms` for improved form rendering and Bootstrap 5 styling.
+---
 
+## 🎯 Features  
 
-## Features
+✅ **Add products** with details like name, category, SKU, price, quantity, weight, color, size, supplier, and image.  
+✅ **See all products** in a list format.  
+✅ **Edit products** (update details & change images).  
+✅ **Delete products** (with a confirmation page).  
 
-### Product Management (CRUD)
-The application now supports full **CRUD (Create, Read, Update, Delete)** functionality for managing products in the inventory.
+---
 
-- **Create:** Users can add new products through a form.
-- **Read:** A product list page displays all existing products.
-- **Update:** Users can update existing product details.
-- **Delete:** Products can be removed from the system with a confirmation step.
+## 🔹 Forms & Styling  
+- **Product Form:** Built using Django **ModelForms** with `django-crispy-forms` to make it look clean.  
+- **Bootstrap 5** is used for styling, making the UI simple and responsive.  
 
-### Templates
-The following HTML templates have been added to improve the UI:
-- **home.html** – Landing page.
-- **layout.html** – Base layout for consistent styling.
-- **product_form.html** – Used for both creating and updating products.
-- **product_list.html** – Displays the list of products.
-- **product_confirm_delete.html** – Confirmation page before deleting a product.
+---
 
-The templates use **Django forms** for structured input and leverage `django-crispy-forms` for improved styling.
+## 🌐 How The URLs Work  
 
-### URL Patterns for Product Management
-The following routes have been added to handle **CRUD operations** for products:
+| URL Pattern                  | What It Does?                     |
+|------------------------------|---------------------------------|
+| `/`                          | Home page                        |
+| `/create/`                   | Add a new product                |
+| `/list/`                     | Show all products                |
+| `/update/<int:product_id>/`  | Update an existing product       |
+| `/delete/<int:product_id>/`  | Delete a product (confirmation)  |
 
-| URL Pattern                  | View Function            | Description                     |
-|------------------------------|-------------------------|---------------------------------|
-| `/`                          | `home_view`             | Home page                       |
-| `/create/`                   | `product_create_view`   | Create a new product            |
-| `/list/`                     | `product_list_view`     | Display all products            |
-| `/update/<int:product_id>/`  | `product_update_view`   | Update an existing product      |
-| `/delete/<int:product_id>/`  | `product_delete_view`   | Delete a product (confirmation) |
+---
 
-This ensures all product management functionality is accessible via clean and structured URLs.
+## 🖼️ **Image Uploads - Fix & Setup**  
 
-### Base Layout Template
+### **💡 Issue:**  
+Before, when editing a product, if no new image was uploaded, the **existing image disappeared**.  
 
-A new **layout.html** template has been added to provide a consistent structure for the application. 
+### **✅ Fix:**  
+- Updated `views.py` to **keep the old image** if no new one is uploaded.  
+- Updated `product_form.html` to **show the current image** when editing a product.  
+- Enabled **image uploads** by adding the following settings in `settings.py`:  
 
-- Includes a **Bootstrap 5 navbar** for easy navigation.
-- Defines a **base structure** using `{% block title %}` and `{% block content %}` for dynamic page rendering.
-- Integrated **Bootstrap 5 and jQuery** for styling and interactive elements.
-
-This layout ensures a uniform look across all pages and improves maintainability.
-
-## Recent Updates & Fixes  
-
-### 🖼️ **1. Image Uploads (Fix & Setup)**
-- Enabled **image uploads** for products by adding the following settings in **`settings.py`**:
   ```python
   MEDIA_URL = '/media/'
   MEDIA_ROOT = BASE_DIR / 'media'
-
-
-
-
-
-
-

@@ -32,4 +32,18 @@ The following HTML templates have been added to improve the UI:
 
 The templates use **Django forms** for structured input and leverage `django-crispy-forms` for improved styling.
 
+### URL Patterns for Product Management
+The following routes have been added to handle **CRUD operations** for products:
+
+| URL Pattern                  | View Function            | Description                     |
+|------------------------------|-------------------------|---------------------------------|
+| `/`                          | `home_view`             | Home page                       |
+| `/create/`                   | `product_create_view`   | Create a new product            |
+| `/list/`                     | `product_list_view`     | Display all products            |
+| `/update/<int:product_id>/`  | `product_update_view`   | Update an existing product      |
+| `/delete/<int:product_id>/`  | `product_delete_view`   | Delete a product (confirmation) |
+
+This ensures all product management functionality is accessible via clean and structured URLs.
+
+
 

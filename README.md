@@ -45,5 +45,14 @@ The following routes have been added to handle **CRUD operations** for products:
 
 This ensures all product management functionality is accessible via clean and structured URLs.
 
+### Base Layout Template
+
+A new **layout.html** template has been added to provide a consistent structure for the application. 
+
+- Includes a **Bootstrap 5 navbar** for easy navigation.
+- Defines a **base structure** using `{% block title %}` and `{% block content %}` for dynamic page rendering.
+- Integrated **Bootstrap 5 and jQuery** for styling and interactive elements.
+
+This layout ensures a uniform look across all pages and improves maintainability.
 
 

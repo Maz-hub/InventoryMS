@@ -1,1 +1,19 @@
+<!-- Extend the base layout from the layout.html -->
+{% extends "InventoryApp/layout.html" %}
 
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the Inventory Management System</h1>
+    <p class="lead">
+        This is a simple inventory management system built using Django. Manage your products here efficiently and
+        easily.
+    </p>
+    <hr class="my-4">
+    <p>Use the navigation bar to add, view, update or delete products</p>
+    <a class="btn btn-primary btn-md" href="{% url 'product_list' %}" role="button">View Products</a>
+</div>
+
+{% endblock %}
